@@ -5,18 +5,18 @@ extends CharacterBody2D
 var can_use_watering_can: bool = false
 
 func get_input():
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * speed
+  var input_direction = Input.get_vector("left", "right", "up", "down")
+  velocity = input_direction * speed
 
 
 func _physics_process(_delta):
-	get_input()
-	move_and_slide()
+  get_input()
+  move_and_slide()
 
 
 func _on_water_in_can_watering_can_empty() -> void:
-	can_use_watering_can = false
+  can_use_watering_can = false
 
 
 func _on_water_in_can_watering_can_filled() -> void:
-	can_use_watering_can = true
+  can_use_watering_can = true
