@@ -35,5 +35,4 @@ func water_garden() -> void:
 	$Sprite2D.texture = watered_texture
 	$TimerUntilDry.start()
 	emit_signal("garden_watered")
-		
 	print("garden plot is watered")
