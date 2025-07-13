@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs312fcmd1yu5"]
+
+[ext_resource type="PackedScene" uid="uid://gpcq85qwsqps" path="res://Scenes/hobit.tscn" id="2_6whob"]
+[ext_resource type="PackedScene" uid="uid://be182y8ikqh2j" path="res://Scenes/garden_plot.tscn" id="3_hh5uf"]
+[ext_resource type="PackedScene" uid="uid://ga4n13s37gf8" path="res://Scenes/well.tscn" id="4_6whob"]
+[ext_resource type="PackedScene" uid="uid://bn4p0jxhbofuj" path="res://Scenes/hud.tscn" id="4_u7krg"]
+
+[node name="World" type="Node2D"]
+
+[node name="Ground" type="ColorRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 647.0
+color = Color(0, 0.470769, 0.0804881, 1)
+
+[node name="GardenPlot" parent="." instance=ExtResource("3_hh5uf")]
+position = Vector2(441, 327)
+
+[node name="GardenPlot2" parent="." instance=ExtResource("3_hh5uf")]
+position = Vector2(571, 328)
+
+[node name="GardenPlot3" parent="." instance=ExtResource("3_hh5uf")]
+position = Vector2(442, 452)
+
+[node name="GardenPlot4" parent="." instance=ExtResource("3_hh5uf")]
+position = Vector2(571, 449)
+
+[node name="Hobit" parent="." instance=ExtResource("2_6whob")]
+position = Vector2(156, 292)
+
+[node name="Well" parent="." instance=ExtResource("4_6whob")]
+position = Vector2(408, 90)
+
+[node name="HUD" parent="." instance=ExtResource("4_u7krg")]
+
+[connection signal="garden_watered" from="GardenPlot" to="HUD/WaterInCan" method="_on_garden_plot_garden_watered"]
+[connection signal="garden_watered" from="GardenPlot2" to="HUD/WaterInCan" method="_on_garden_plot_2_garden_watered"]
+[connection signal="garden_watered" from="GardenPlot3" to="HUD/WaterInCan" method="_on_garden_plot_3_garden_watered"]
+[connection signal="garden_watered" from="GardenPlot4" to="HUD/WaterInCan" method="_on_garden_plot_4_garden_watered"]
+[connection signal="body_entered" from="Well" to="Well" method="_on_body_entered"]
+[connection signal="body_exited" from="Well" to="Well" method="_on_body_exited"]
+[connection signal="watering_can_refiled" from="Well" to="HUD/WaterInCan" method="_on_well_watering_can_refiled"]
+[connection signal="watering_can_empty" from="HUD/WaterInCan" to="Hobit" method="_on_water_in_can_watering_can_empty"]
+[connection signal="watering_can_filled" from="HUD/WaterInCan" to="Hobit" method="_on_water_in_can_watering_can_filled"]
+
+[editable path="Well"]
+[editable path="HUD"]

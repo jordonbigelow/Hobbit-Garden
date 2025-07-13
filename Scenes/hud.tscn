@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn4p0jxhbofuj"]
+
+[ext_resource type="Script" uid="uid://cvv443idsg6py" path="res://Scenes/water_in_can.gd" id="1_e0onf"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 290.0
+offset_bottom = 47.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 52.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Water:"
+
+[node name="WaterInCan" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -13.5
+offset_bottom = 13.5
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_e0onf")
+
+[connection signal="value_changed" from="WaterInCan" to="WaterInCan" method="_on_value_changed"]

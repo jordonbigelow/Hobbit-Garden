@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://gpcq85qwsqps"]
+
+[ext_resource type="Script" uid="uid://ba88k0jvlw7yt" path="res://Scripts/hobit.gd" id="1_eulwv"]
+[ext_resource type="Texture2D" uid="uid://xkepoipl83mf" path="res://Assets/stardew-like.png" id="2_kugrb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
+radius = 6.0
+
+[node name="Hobit" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_eulwv")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0hol4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_kugrb")

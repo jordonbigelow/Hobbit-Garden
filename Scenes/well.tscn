@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://ga4n13s37gf8"]
+
+[ext_resource type="Texture2D" uid="uid://crpo4fpc3hrl2" path="res://Assets/animated-water.png" id="1_fkaar"]
+[ext_resource type="Script" uid="uid://cmvuqqs64oaih" path="res://Scenes/well.gd" id="1_o0wdx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0wdx"]
+atlas = ExtResource("1_fkaar")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swqaa"]
+atlas = ExtResource("1_fkaar")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0l7h"]
+atlas = ExtResource("1_fkaar")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hs7x2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0wdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swqaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0l7h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eywh"]
+size = Vector2(96, 94)
+
+[node name="Well" type="Area2D"]
+script = ExtResource("1_o0wdx")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_hs7x2")
+autoplay = "default"
+frame_progress = 0.671342
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0eywh")

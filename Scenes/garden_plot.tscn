@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://be182y8ikqh2j"]
+
+[ext_resource type="Script" uid="uid://e5ifm1vy8su2" path="res://Scripts/garden_plot.gd" id="1_qfxa5"]
+[ext_resource type="Texture2D" uid="uid://dv8xh64w5ial" path="res://Assets/dirt.png" id="2_wdevp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(98, 96)
+
+[node name="GardenPlot" type="Area2D"]
+script = ExtResource("1_qfxa5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_wdevp")
+
+[node name="TimerUntilDry" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="TimerUntilDry" to="." method="_on_timer_until_dry_timeout"]
