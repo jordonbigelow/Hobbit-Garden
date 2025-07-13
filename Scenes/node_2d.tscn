@@ -31,6 +31,7 @@ position = Vector2(156, 292)
 position = Vector2(408, 90)
 
 [node name="HUD" parent="." instance=ExtResource("4_u7krg")]
+z_index = 2
 
 [connection signal="garden_watered" from="GardenPlot" to="HUD/WaterInCan" method="_on_garden_plot_garden_watered"]
 [connection signal="garden_watered" from="GardenPlot2" to="HUD/WaterInCan" method="_on_garden_plot_2_garden_watered"]
